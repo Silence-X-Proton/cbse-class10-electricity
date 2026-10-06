@@ -1,0 +1,16 @@
+# Reuse workflow for the next chapter
+
+This edition must stay **CBSE Class 10 Electricity only**. Do not widen its question bank or quietly change its coverage claims. Reuse the template in a new directory/branch only after explicitly agreeing the next chapter and targets.
+
+1. **Define scope before collecting.** Record board, class, subject, chapter, syllabus session, requested years/sessions, inclusion/exclusion boundaries, target document counts and output format. Confirm whether chapter-number changes affect source selection.
+2. **Copy UI, not assertions.** Copy HTML/CSS/JS and tools to a new chapter project. Start with empty `questions`, `documents` and `sources`. Do not carry over Electricity coverage, verification claims, PDF links, citations or dates.
+3. **Change the shared owner and static labels together.** Update `TARGETS` in `content-utils.mjs`, labels/counts in `index.html`, hardcoded Electricity/21 wording in `app.js` and README, and chapter/readiness rules in `tools/validate.mjs`. Update contract/examples/tests. This template is currently purposefully Electricity-specific, not a generic multi-chapter app.
+4. **Build a source inventory.** Record exact official URL, downloaded file, session/year, exam type, paper/set code, one-based PDF page and printed page where different. Keep raw downloads outside the published folder until reviewed. Retain checksums in the research audit.
+5. **Extract then verify.** OCR/text extraction creates drafts, not verification. Preserve authentic question and marking-scheme crops with all needed continuation pages. Never redraw an official diagram. Label supplementary transcripts and original solutions honestly.
+6. **Audit chapter boundaries.** Review all requested source sessions and explicitly record unavailable years, excluded mixed-chapter subparts, alternatives, anomalies and incomplete evidence. Treat independent alternatives carefully when allocating marks.
+7. **Write genuinely original practice and notes.** Keep these separate from official-source compilations. Match the agreed syllabus and difficulty without promising exam appearance. Verify worked numerical answers independently.
+8. **Assemble and validate.** Map source records into the new contract. Resolve every `question_id`, copy local evidence, verify all links and ensure ready documents are nonempty. Keep final publication blocked until the agreed ready inventory and provenance checks pass.
+9. **Quality review.** Run unit and browser checks at narrow and wide viewports; keyboard navigation; no-results/error states; source image arrays; unverified warnings; individual/all printing with answers on/off; local PDF links beneath a non-root Pages path. Review PDF pages visually.
+10. **Publish only with explicit permission.** Inspect the final diff and file list for private research, temporary fixtures and credentials. A site build is not permission to use a GitHub token or deploy. Record publication date and limitations honestly.
+
+For later corrections: modify source data at its owner, regenerate affected compiled PDFs, rerun validators, update the coverage/date notes, and keep stable document IDs where the resource is the same. Never fix only the displayed text while leaving the PDF or source appendix inconsistent.

@@ -1,0 +1,21 @@
+# Raw official bundles and working evidence remain local; curated copies live in site/assets.
+/research/
+/content/
+/COORDINATION.md
+/assembly/status.json
+/assembly/validation.json
+/assembly/asset_manifest.json
+/assembly/HANDOFF.md
+/assembly/.staging*/
+/assembly/staging/
+**/__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+*.log
+*.tmp
+.env
+.env.*
+*token*
+*credential*

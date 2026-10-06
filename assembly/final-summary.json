@@ -1,0 +1,73 @@
+{
+  "counts": {
+    "official": 15,
+    "practice": 4,
+    "notes": 2
+  },
+  "ready_count": 21,
+  "unique_official_questions": 78,
+  "selected_unique_official_questions": 75,
+  "official_question_appearances": 210,
+  "bank_only_official_questions": 3,
+  "published_pyq_year_counts": {
+    "2018": 3,
+    "2022": 3,
+    "2023": 3,
+    "2024": 3,
+    "2025": 6,
+    "2026": 12
+  },
+  "selected_pyq_year_counts": {
+    "2018": 3,
+    "2022": 3,
+    "2023": 3,
+    "2024": 3,
+    "2025": 6,
+    "2026": 12
+  },
+  "published_sqp_session_counts": {
+    "2017-18": 3,
+    "2018-19": 3,
+    "2019-20": 4,
+    "2020-21": 4,
+    "2021-22": 3,
+    "2022-23": 3,
+    "2023-24": 5,
+    "2024-25": 9,
+    "2025-26": 9,
+    "2026-27": 5
+  },
+  "asset_count": 195,
+  "asset_bytes": 47919702,
+  "input_sha256": {
+    "sqp": "b84b7c7d9596ebbefd909b9637ee5856c97537b428ecc858ac5dab3812748baa",
+    "pyq": "9656d7bd39867f924aade237f63f7228b203985e63125c6e634619a9ee6e5e2d",
+    "originals": "512cc83446052acb9863feda441f694681fd0ba45b1142811dc8c3eb615a3122",
+    "notes": "e6f1d6956e470acabb5a818567b533caebf8fb33f93154faadd37b2c7e093b03",
+    "pyq_metadata": "b6596c7ab4b0a9ca42f3c441305d986b2441b1abbff75656b85ad957807a13c3"
+  },
+  "question_count": 142,
+  "pdf_count": 21,
+  "total_pdf_pages": 254,
+  "pdf_bytes": 20837711,
+  "answer_holds": 35,
+  "short1_bank_count": 3,
+  "excluded_records": 68,
+  "official_marks": [
+    33,
+    35,
+    34,
+    34,
+    36,
+    33,
+    33,
+    33,
+    35,
+    35,
+    33,
+    35,
+    36,
+    34,
+    35
+  ]
+}
