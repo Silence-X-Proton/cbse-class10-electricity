@@ -507,11 +507,11 @@ def sanitize_coverage(value):
     if isinstance(value, str): return value.replace(str(ROOT) + '/', '')
     return value
 
-def apply_publication_metadata(bank, metadata):
+def apply_publication_metadata(bank, metadata, *, validate_legacy_base=True):
     if not isinstance(metadata, dict):
         raise Blocked('Publication metadata must be an object keyed by canonical root question IDs')
     validation_path = ROOT/'research/pyq/publication_validation.json'
-    if validation_path.exists():
+    if validate_legacy_base and validation_path.exists():
         expected = json.loads(validation_path.read_text()).get('canonical_bank_sha256')
         if expected and digest(ROOT/INPUTS['pyq']) != expected:
             raise Blocked('Canonical PYQ bank hash differs from reviewed overlay base')

@@ -4,7 +4,7 @@ A responsive, accessible-first, static chapter library for GitHub Pages. **Elect
 
 ## Current state
 
-The interface is complete and can display the eventual **15 official source compilations + 4 original prediction-practice papers + 2 notes/guidance documents**. The initial `data/content.json` is an explicit **pending shell**, not a claim that those 21 documents exist. The assembler populates real, reviewed content later. No fabricated official questions, diagrams, answers or provenance have been added.
+The recovered interface supports the existing **21-document / 142-question** release and additive collections under schema version 1. Final inventory requirements are **minimum 15 official + 4 original practice + 2 notes**, not a ceiling. The anticipated 27-document / 298-question Special39-and-masters stage is an assembler deliverable, not published or certified by this UI work. The initial pending shell is historical; see TEST_RESULTS.md and RELEASE.md.
 
 UI readiness is separate from content readiness. Actual ready counts, question verification, source details and coverage limitations remain visible. “Official” describes the question source, not this independent compilation. There is no CBSE affiliation and no exam guarantee.
 
@@ -40,21 +40,21 @@ Read **[CONTRACT.md](CONTRACT.md)** before writing content. The assembler owns `
 
 ## Features
 
-- Four keyboard-navigable category tabs: official, original practice, notes, sources. Arrow keys/Home/End change tabs.
-- Responsive document cards; inline document reader with stable `#doc-ID` fragments.
-- Native accessible question/answer/source accordions; search by wording, topic, session, source title and question number; topic/origin/marks filters; 20-result pagination.
-- Scalar or array evidence images, optional descriptive alt text, full-size source links, visible image-load errors and unverified-answer warnings.
+- Separate keyboard-navigable PYQ, SQP, original and all-question banks; independent library tabs. Arrow keys/Home/End change tabs. Pure PYQ/SQP master and year collections are separate from legacy mixed compilations.
+- Responsive document cards; eight-question reader pages with stable `#doc-ID` fragments. Featured Special39 practice grouping recognizes supplied practice_series metadata, Special39 titles and special-39-01..04 IDs; titles and actual counts remain data-driven. Legacy practice stays separate.
+- Native accessible question/answer/source accordions; search by wording, topic, session, source title and question number; topic/year/session/set/marks filters; 20-result batches and lazy question bodies.
+- Scalar or array evidence images, optional descriptive alt text, full-window zoom with Fit/100%/± controls, Escape and focus restoration, full-size source links, visible image-load errors and unverified-answer warnings.
 - Dedicated document print styles, one-document or all-ready printing, optional answers, source appendices and explicit disclaimers.
 - No PDF download links until `pdf` is present; local link validation detects missing assets.
 - Text-only rendering (no content HTML execution), safe local/HTTP(S) links, no root-relative assumptions, reduced-motion support and visible focus indicators.
 
 ## Printing and PDFs
 
-Use **Print this document** from a preview, or **Print all ready documents**. Choose whether answers are included. The print helper eagerly loads every included evidence image and stops if images fail or do not finish within 15 seconds, instead of silently printing incomplete evidence. Browser printing itself is user-controlled.
+Use **Print full document** from a preview, or **Print all ready documents**. Choose whether answers are included; official answers print only when verified. Original editorial notes remain with answers, not in questions-only output. PDF embeds are opt-in and removed on hide, close or document switch; Open PDF and Download PDF remain available. The print helper eagerly loads every included evidence image and stops if images fail or do not finish within 15 seconds, instead of silently printing incomplete evidence. Browser printing itself is user-controlled.
 
 Select **Save as PDF**, A4, normal scale. For cleaner output disable browser-added headers/footers. Each document starts a new page; source URLs are printed in appendices. Long question/evidence blocks may continue across pages to avoid clipping. Review page breaks and all diagrams before release. The browser's own Ctrl/Cmd+P has a fallback, but the dedicated print buttons are preferred because they await image loading.
 
-Save individual files under `downloads/` (create it when needed), then set their exact relative paths in the corresponding `pdf` fields. Re-run validation. The site does not fabricate files, automatically update JSON after printing, or generate/deploy PDFs on visitors' devices without interaction. Automated PDF export is optional future work; no generated final PDFs are claimed in the initial shell.
+Save individual files under `downloads/` (create it when needed), then set their exact relative paths in the corresponding `pdf` fields. Re-run validation. The site does not fabricate files, automatically update JSON after printing, or generate/deploy PDFs on visitors' devices without interaction. Existing PDF files are assembler-owned; this UI neither regenerates nor replaces them.
 
 ## Checks
 
@@ -66,9 +66,9 @@ node tools/validate.mjs
 node tools/validate.mjs --final
 ```
 
-Assembly validation allows empty/pending content but rejects invalid references, mixed official/original paper origins, unsafe URLs, invalid question fields, empty ready documents, and missing local assets. Final validation also enforces the exact 15/4/2 ready inventory and official provenance, evidence, and answer verification where answers are provided. A final failure is expected for the initial shell. The validator does **not** replace visual source auditing, assess scientific correctness, check remote URLs online or certify WCAG conformance.
+Assembly validation allows empty/pending content but rejects invalid references, mixed official/original paper origins, unsafe URLs, invalid question fields, empty ready documents, and missing local assets. Final validation also enforces minimum 15/4/2 ready inventory, readiness of every additional document, and official provenance, evidence, and answer verification where answers are provided. A final failure is expected for an empty pending shell, not the current populated release. The validator does **not** replace visual source auditing, assess scientific correctness, check remote URLs online or certify WCAG conformance.
 
-Browser exercise: visit `tests/browser.html` while serving the site. Its isolated iframe supplies clearly labelled, **synthetic original practice plus real inspected source-metadata** fixture content in memory. It does not modify `data/content.json` or publish fake official questions. It checks populated cards, filtering, safe text rendering, image arrays, preview, answer warnings and print preparation with a mocked print dialog. The fixture is only a test harness; it is not linked from the student-facing site.
+Browser exercise: visit `tests/browser.html` while serving the site. Its isolated iframe deep-copies the actual published data, preserving real question/asset/hold records, and adds test-only collection metadata plus explicitly labelled original safety/grouping fixtures in memory. It does not modify `data/content.json` or publish fake official questions. It checks populated cards, filtering, safe text rendering, image arrays, preview, answer warnings and print preparation with a mocked print dialog. The fixture is only a test harness; it is not linked from the student-facing site.
 
 Before publication, manually check mobile and desktop, keyboard-only navigation, representative official multi-page evidence, source appendix completeness, image readability, working PDF downloads and actual print previews. See `TEST_RESULTS.md` for performed checks and remaining limitations.
 
@@ -82,7 +82,9 @@ Never publish private research scratch files or credentials. Check source attrib
 
 - `index.html`, `styles.css`: visual design, responsive and print layout.
 - `app.js`: fetching, cards/tabs/search, reader, provenance, print preparation.
-- `content-utils.mjs`: shared normalization, URL safety, shape checks, search.
+- `content-utils.mjs`: shared normalization, URL safety, shape checks, search and grouping.
+- `ui-evidence.mjs`: native image viewer and bounded source coverage ledger.
+- `V2_CONTRACT.md`: optional additive fields and assembler/UI boundaries.
 - `data/content.json`: content entry point (assembler-owned).
 - `CONTRACT.md`: exact schema and editorial rules.
 - `tools/serve.mjs`, `tools/validate.mjs`: dependency-free local tooling.

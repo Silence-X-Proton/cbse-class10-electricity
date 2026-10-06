@@ -1,1 +1,19 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><title>Electricity UI test harness — not study content</title><style>body{font:16px system-ui;margin:20px}iframe{width:100%;height:900px;border:1px solid #aaa}pre{white-space:pre-wrap}button{padding:10px}</style><h1>Isolated browser smoke tests</h1><p>Synthetic original practice and real inspected source metadata, never written to the published data file. The print dialog is mocked.</p><pre id="result">Running…</pre><iframe id="site" title="Test-only library preview"></iframe><script type="module" src="browser-tests.mjs"></script></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Electricity V2 UI test harness — not study content</title>
+  <style>
+    body{font:16px system-ui;margin:20px}iframe{box-sizing:border-box;width:100%;height:900px;border:1px solid #aaa}pre{white-space:pre-wrap;overflow-wrap:anywhere}button{padding:10px}
+  </style>
+</head>
+<body>
+  <h1>Isolated V2 browser regression tests</h1>
+  <p>Fetches the real <code>../data/content.json</code> and deep-copies it in memory. All real questions, source images, holds and existing documents are preserved. Test-only master/year collections reference real questions and omit unbuilt PDFs. One explicitly original safety fixture and labelled coverage-ledger rows are added only inside the isolated preview; nothing is written to published data.</p>
+  <p>The print dialog is mocked, but actual image loading is checked. Run over HTTP after the UI changes are ready. Native trusted Escape and PDF visual rendering must also be checked by the parent browser runner.</p>
+  <pre id="result" role="status" aria-live="polite" data-status="running">Running…</pre>
+  <iframe id="site" title="Test-only library preview"></iframe>
+  <script type="module" src="browser-tests.mjs"></script>
+</body>
+</html>

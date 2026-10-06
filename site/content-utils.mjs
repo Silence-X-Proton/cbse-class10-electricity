@@ -22,9 +22,28 @@ export function images(...values) {
 }
 export const questionImages = q => images(q.evidence_images, q.evidence_image, q.diagram_image);
 export const answerImages = q => images(q.answer_evidence_images, q.answer_evidence_image);
-export function matchesQuestion(q, { search = '', topic = '', origin = '', marks = '' } = {}) {
-  const haystack = [q.text, q.topic, q.type, q.session, q.year, q.question_number, q.source_title, q.paper_code, ...array(q.options)].join(' ').toLocaleLowerCase();
-  return (!topic || q.topic === topic) && (!origin || q.origin === origin) && (!marks || String(q.marks) === marks) && search.trim().toLocaleLowerCase().split(/\s+/).every(word => haystack.includes(word));
+export function matchesQuestion(q, { search = '', topic = '', origin = '', marks = '', exam_type = '', year = '', session = '', paper_code = '' } = {}) {
+  const haystack = [q.id, q.source_id, q.exam_type, q.set, q.text, q.topic, q.type, q.session, q.year, q.question_number, q.source_title, q.paper_code, ...array(q.options)].join(' ').toLocaleLowerCase();
+  const exact = (value, criterion) => value != null && String(value) === String(criterion);
+  return (!topic || q.topic === topic) && (!origin || q.origin === origin) && (!marks || String(q.marks) === marks)
+    && (!exam_type || q.exam_type === exam_type)
+    && (!year || exact(q.year, year) || exact(q.session, year))
+    && (!session || exact(q.session, session))
+    && (!paper_code || exact(q.paper_code || q.set, paper_code))
+    && search.trim().toLocaleLowerCase().split(/\s+/).every(word => haystack.includes(word));
+}
+export function documentCollectionType(doc, questionMap) {
+  if (doc.kind !== 'official') return 'unknown';
+  if (Object.hasOwn(doc, 'collection_type')) return ['pyq', 'sqp', 'mixed'].includes(doc.collection_type) ? doc.collection_type : 'unknown';
+  if (!Array.isArray(doc.question_ids) || !doc.question_ids.length) return 'unknown';
+  const types = new Set();
+  for (const id of doc.question_ids) {
+    const q = questionMap.get(id);
+    // Every reference must have authoritative provenance, even after finding both types.
+    if (!q || q.origin !== 'official' || !['PYQ', 'SQP'].includes(q.exam_type)) return 'unknown';
+    types.add(q.exam_type);
+  }
+  return types.size === 2 ? 'mixed' : [...types][0].toLowerCase();
 }
 export function checkShape(data) {
   if (!data || data.schema_version !== 1) throw new Error('Unsupported content schema. Expected schema_version 1.');
@@ -42,4 +61,9 @@ export function checkShape(data) {
     if (doc.question_ids.some(id => !ids.has(id))) throw new Error(`Missing question reference in document: ${doc.id}`);
   }
   return data;
+}
+
+// Series labels organize supplied practice only; they never imply a question count.
+export function isSpecial39(doc) {
+  return doc.kind === 'practice' && (doc.practice_series === 'special39' || /^special-39-0[1-4]$/.test(doc.id) || /\bspecial\s*39\b/i.test(doc.title || ''));
 }

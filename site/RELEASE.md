@@ -1,5 +1,7 @@
 # Verified release — 6 October 2026
 
+Historical release snapshot: the exact counts and checks below are retained as evidence, not future inventory requirements. Current validation uses minimum 15/4/2 inventory; see V2_CONTRACT.md and the recovery section of TEST_RESULTS.md for subsequent UI checks.
+
 - 21 downloadable PDFs, 254 pages: 15 official-source compilations, 4 original practice papers, 2 detailed notes.
 - Official compilations: 14 questions each, 33–36 marks, sections A/B/C/D; source appendix per paper.
 - Original practice: 16 questions and 36 marks each, solutions and original circuit/graph diagrams.

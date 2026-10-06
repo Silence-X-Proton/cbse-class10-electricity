@@ -24,7 +24,7 @@ Owner boundary: the site developer owns UI/tools/docs; the content assembler own
 }
 ```
 
-The expected final inventory is exactly **15 official compilations + 4 original practice/prediction papers + 2 notes/guidance documents = 21 documents**. Counts are computed from data, never asserted by the UI. Empty arrays are valid during assembly. `coverage.topics[].status`: `covered`, `partial`, `pending`. `meta.updated` is a human-readable date or null, not a fabricated verification timestamp.
+The final inventory requires a **minimum 15 official compilations + 4 original practice papers + 2 notes/guidance documents**. The historical 21-document baseline is not a ceiling; every additional document is validated and must be ready for final publication. See V2_CONTRACT.md for compatible master/year metadata and Special39 grouping. Counts are computed from data, never asserted by the UI. Empty arrays are valid during assembly. `coverage.topics[].status`: `covered`, `partial`, `pending`. `meta.updated` is a human-readable date or null, not a fabricated verification timestamp.
 
 ## Documents
 
@@ -70,4 +70,4 @@ Do not commit tokens, credentials, research scratch files, or private annotation
 
 ## Validation and printing
 
-Run `node tools/validate.mjs` from `site/` (structural, link, provenance checks; pending data allowed). `node tools/validate.mjs --final` additionally requires the 15/4/2 ready inventory and verified official provenance/evidence/answers when present. Browser print supports one document or all ready documents with evidence and source appendices, including answers by explicit checkbox. CSS removes UI controls and page-breaks documents. Browser “Save as PDF” is a manual supported export; output must be copied into the site and its path added to `pdf` to expose download links.
+Run `node tools/validate.mjs` from `site/` (structural, link, provenance checks; pending data allowed). `node tools/validate.mjs --final` additionally requires minimum 15/4/2 ready inventory and verified official provenance/evidence/answers when present. Browser print supports one document or all ready documents with evidence and source appendices, including answers by explicit checkbox. CSS removes UI controls and page-breaks documents. Browser “Save as PDF” is a manual supported export; output must be copied into the site and its path added to `pdf` to expose download links.

@@ -19,3 +19,7 @@ node_modules/
 .env.*
 *token*
 *credential*
+/assembly/staging-*/
+/assembly/*-visual/
+/assembly/*-status.json
+/assembly/*-draft-smoke.json

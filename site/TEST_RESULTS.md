@@ -1,5 +1,22 @@
 # Site verification report
 
+## UI recovery acceptance — 6 October 2026 UTC
+
+- Recovered and reviewed UI/tool/test diff; data, source assets, downloads and assembly code were not edited by this recovery. Existing localhost server PID 145388 on port 8766 was reused, not duplicated.
+- Unit suite: **17/17 passed**. Both assembly and final validators pass the current **21 documents / 142 questions / 216 local asset references**, with zero errors/warnings. Final acceptance uses minimum 15 official / 4 practice / 2 notes, with every added document validated; historical exact counts below are not ceilings.
+- Browser harness: **1,018 checks passed each** at desktop 1280×900 (iframe client width 1223) and mobile 375×812 (iframe client width 318), under `/electricity-project/`. Includes separate PYQ/SQP navigation; exact year/session/set and combined filters; derived legacy mixed classification; added master/year collections; eight-question pagination; unchanged IDs/evidence; answer holds; lazy bodies; safe text/URLs; optional/fallback coverage ledger; PDF opt-in/removal; full-document and all-ready print preparation; image-failure blocking; HTTP-error state; no uncaught errors; and no horizontal page overflow.
+- Added Special39 grouping checks for metadata, titles and stable IDs `special-39-01..04`, including practice-only classification, preservation of legacy practice, and real reference counts rather than invented 39-question totals. Fixtures are explicitly test-only and never modify published data.
+- Fixed a browser-reproduced regression: original editorial notes could expose answers before disclosure and in questions-only print. Notes now remain with answers; tests verify both excluded and included print paths. Official provenance/hold notes remain visible.
+- Real published `official-01` mobile preview: trusted Escape closes the native image dialog, removes its source and restores focus to the invoking image button. No PDF iframe exists before opt-in. The existing PDF first page visibly rendered after opt-in; open/download fallback controls remain visible. One small screenshot inspected: `/a0/usr/workdir/electricity-ui-recovery-pdf.jpg`.
+- Browser print dialog is mocked in automation. Full exported print pagination, every PDF page, Firefox/Safari, screen-reader/WCAG audit, and the anticipated actual **27-document / 298-question** stage were **not** verified in this recovery. Additive-schema fixtures establish UI compatibility, not author/editor correctness or final stage acceptance.
+- No deployment, credentials, token use, or replacement of data/assets/downloads. Final integration must rerun validators and browser checks against the assembled stage. See V2_CONTRACT.md for additive metadata and Special39 rules.
+
+---
+
+## Historical initial-shell verification
+
+The sections below retain the original shell-era results and limitations verbatim. They describe that earlier snapshot, not the populated release or the recovery checks appended below.
+
 ## Scope
 
 UI/tooling verification only. The initial published data remains the pending shell, owned by the content assembler. No final question collection, generated PDFs, deployment, or editorial certification is claimed.
